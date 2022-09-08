@@ -3,6 +3,7 @@ package com.devmountain.OMS.dtos;
 
 import com.devmountain.OMS.entities.Cust;
 import com.devmountain.OMS.entities.Item;
+import com.devmountain.OMS.entities.Order;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,5 +20,14 @@ public class OrderDto {
 
     private Cust cust;
 
-    private List<Item> itemDtoList = new ArrayList<>();
+    private List<Item> itemList = new ArrayList<>();
+
+    public OrderDto(Order order)
+    {
+        if(order.getId() != null)
+            this.id = order.getId();
+
+        if(order.getCust() != null)
+            this.cust = order.getCust();
+    }
 }
