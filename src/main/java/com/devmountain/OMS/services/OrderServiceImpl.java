@@ -7,6 +7,7 @@ import com.devmountain.OMS.repos.CustRepository;
 import com.devmountain.OMS.repos.ItemRepository;
 import com.devmountain.OMS.repos.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
 import javax.transaction.Transactional;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
