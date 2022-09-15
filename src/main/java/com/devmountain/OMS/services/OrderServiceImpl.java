@@ -70,5 +70,19 @@ public class OrderServiceImpl implements OrderService {
         return Optional.empty();
     }
 
+    @Override
+    public void updateOrderById(OrderDto orderDto)
+    {
+        Optional<Order> orderOptional = orderRepository.findById(orderDto.getId());
+        orderOptional.ifPresent(order ->
+        {
+            order.setCust(orderDto.getCust());
+            order.setId(orderDto.getId());
+            order.setItemList(orderDto.getItemList());
+            orderRepository.saveAndFlush(order);
+        });
+    }
+
+
 
 }

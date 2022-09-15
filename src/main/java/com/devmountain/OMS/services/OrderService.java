@@ -16,4 +16,6 @@ public interface OrderService {
     List<OrderDto> getAllOrderByCustId(Long id);
 
     Optional<OrderDto> getOrderById(long id);
+
+    void updateOrderById(OrderDto orderDto);
 }
