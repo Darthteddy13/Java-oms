@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/v1/notes")
+@RequestMapping("/items")
 public class ItemController {
     @Autowired
     private ItemService itemService;

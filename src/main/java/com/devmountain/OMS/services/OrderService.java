@@ -18,4 +18,6 @@ public interface OrderService {
     Optional<OrderDto> getOrderById(long id);
 
     void updateOrderById(OrderDto orderDto);
+
+    List<OrderDto> getAllOrders();
 }

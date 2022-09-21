@@ -10,6 +10,8 @@ import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
+@RestController
+@RequestMapping("/orders")
 public class OrderController {
     @Autowired
     private OrderService orderService;
@@ -44,6 +46,8 @@ public class OrderController {
         return orderService.getOrderById(id);
     }
 
+    @GetMapping("/orders")
+    public List<OrderDto> getAllOrders() { return orderService.getAllOrders(); }
 
 
 }
