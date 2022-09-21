@@ -22,4 +22,7 @@ public class CustController {
         return custService.addCust(custDto);
     }
 
+    @GetMapping("/customers")
+    public List<CustDto> getCustomers() { return custService.getAllCustomers(); }
+
 }

@@ -13,4 +13,6 @@ public interface CustService {
 
     @Transactional
     Optional<CustDto> getByName(String name);
+
+    List<CustDto> getAllCustomers();
 }

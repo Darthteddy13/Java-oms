@@ -1,7 +1,9 @@
 package com.devmountain.OMS.services;
 
 import com.devmountain.OMS.dtos.CustDto;
+import com.devmountain.OMS.dtos.OrderDto;
 import com.devmountain.OMS.entities.Cust;
+import com.devmountain.OMS.entities.Order;
 import com.devmountain.OMS.repos.CustRepository;
 import com.devmountain.OMS.repos.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CustServiceImpl implements CustService {
@@ -44,5 +47,12 @@ public class CustServiceImpl implements CustService {
 
         return Optional.empty();
 
+    }
+
+    @Override
+    public List<CustDto> getAllCustomers()
+    {
+        List<Cust> custList = custRepository.findAll();
+        return custList.stream().map(cust -> new CustDto(cust)).collect(Collectors.toList());
     }
 }

@@ -21,6 +21,7 @@ const getOrders = async () =>
     })
         .then(res => res.json())
         .then(data => addOrders(data))
+        .catch(err => console.error(err.message))
 
 }
 
