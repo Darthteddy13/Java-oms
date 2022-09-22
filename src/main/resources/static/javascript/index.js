@@ -1,5 +1,5 @@
 //DOM elements
-const orderTable = document.getElementById("order_table");
+const orderTable = document.getElementById("order-table");
 
 //Modal elements
 
@@ -10,7 +10,7 @@ const headers =
         'Content-Type': 'application/json',
     }
 
-const baseUrl = "http://localhost:8080/"
+const baseUrl = "http://localhost:8080/orders/"
 
 const getOrders = async () =>
 {
@@ -29,12 +29,9 @@ const addOrders = arr =>
 {
     arr.forEach(e =>
     {
-        orderTable.append(
-            `<tr>
-                <td>${e.id}</td>
-                <td>${e.cust.name}</td>
-             </tr>
-        `)
+        let content = orderTable.innerHTML;
+        content += `<tr><td>${e.id}</td><td>${e.cust.name}</td></tr>`
+        orderTable.innerHTML = content;
     })
 }
 

@@ -13,9 +13,9 @@ const baseUrl = "http://localhost:8080"
 function addOptions(arr) {
     arr.forEach(e =>
     {
-        customerSelect.append(
-            `<option value="${e.id}">${e.name}</option>
-        `)
+        let content = customerSelect.innerHTML;
+        content += `<option value="${e.id}">${e.name}</option>`
+        customerSelect.innerHTML = content;
     })
 }
 
