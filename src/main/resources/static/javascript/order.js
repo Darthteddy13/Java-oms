@@ -1,7 +1,7 @@
 //DOM Elements
-const itemsContainer = document.getElementById("items-container");
 const newCustBtn = document.getElementById("new-customer");
 const customerSelect = document.getElementById("customer_select");
+const itemTable = document.getElementById("item-table");
 
 const headers =
     {
@@ -10,25 +10,30 @@ const headers =
 
 const baseUrl = "http://localhost:8080"
 
-function addOptions(arr) {
-    arr.forEach(e =>
+let orderId = sessionStorage.getItem(id);
+sessionStorage.clear();
+
+const popItems = arr =>
     {
-        let content = customerSelect.innerHTML;
-        content += `<option value="${e.id}">${e.name}</option>`
-        customerSelect.innerHTML = content;
-    })
-}
-
-const customerOptions = async () =>
-{
-    await fetch(`${baseUrl}/Cust/customers`,
+        arr.forEach(e =>
         {
-            method: "GET",
-            headers:headers
+            let content = itemTable.innerHTML;
+            content += `<tr><td>${e.name}</td><td>${e.description}</td><td>${e.price}</td></tr>`;
+            itemTable.innerHTML = content;
         })
-        .then(res => res.json())
-        .then(data => addOptions(data))
-        .catch(err => console.error(err.message))
-}
-customerOptions();
+    }
+const getItems = async () =>
+    {
+        await fetch(`${baseUrl}/items/order/${orderId}`,
+            {
+                method: "GET",
+                headers:headers
+            })
+            .then(res => res.json())
+            .then(data => popItems(data))
+            .catch(err => console.error(err.message))
+    }
 
+//implement add item
+
+getItems();

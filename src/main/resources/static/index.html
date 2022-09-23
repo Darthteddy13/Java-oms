@@ -12,8 +12,7 @@
 </head>
 <body>
     <div id="button_bar">
-        <button type="button" class="btn btn-primary" id="new_cust" data-bs-toggle="modal" data-bs-target="#add_customer_modal">New Customer</button>
-        <button id="new_order">New Order</button>
+        <button type="button" class="btn btn-primary" id="new_order" data-bs-toggle="modal" data-bs-target="#new-order-modal" onclick="customerOptions()">New order</button>
     </div>
     <div class="container-fluid">
         <table class="table table-striped table-dark table-bordered" id="order-table">
@@ -25,8 +24,8 @@
             </thead>
         </table>
     </div>
-<!-- Add customer Modal -->
-<div class="modal fade" id="add_customer_modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+<!-- Add order Modal -->
+<div class="modal fade" id="new-order-modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -43,20 +42,23 @@
                     <label for="email">Email: </label>
                     <br>
                     <input type="text" id="email">
+                    <button class="btn btn-primary" onclick="customerOptions()">Add customer</button>
                 </form>
+                <select id="customer_select">
+                    <option value="emptySelect">--Select a customer--</option>
+                </select>
             </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" id="add-customer-btn" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+                    <button type="button" id="new-order-btn" class="btn btn-primary" data-bs-dismiss="modal">Create Order</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-    <!-- JavaScript Bundle with Popper -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 <script src="./javascript/index.js" type="application/javascript"></script>
 
 </body>

@@ -30,9 +30,48 @@ const addOrders = arr =>
     arr.forEach(e =>
     {
         let content = orderTable.innerHTML;
-        content += `<tr><td>${e.id}</td><td>${e.cust.name}</td></tr>`
+        content += `<tr><td onclick="navigate(e.id)">${e.id}</td><td onclick="navigate(e.id)">${e.cust.name}</td></tr>`
         orderTable.innerHTML = content;
     })
 }
+
+const navigate = id =>
+{
+    sessionStorage.setItem("id", id)
+    location.href="/order.html"
+}
+const newOrder = async id =>
+{
+    let response = await fetch(`${baseUrl}/cust/${id}`,
+        {
+            method: "POST",
+            headers: headers
+        })
+        .catch(err => console.error(err.message))
+}
+
+function addOptions(arr) {
+    arr.forEach(e =>
+    {
+        let content = customerSelect.innerHTML;
+        content += `<option value="${e.id}">${e.name}</option>`
+        customerSelect.innerHTML = content;
+    })
+}
+
+const customerOptions = async () =>
+{
+    await fetch(`${baseUrl}/Cust/customers`,
+        {
+            method: "GET",
+            headers:headers
+        })
+        .then(res => res.json())
+        .then(data => addOptions(data))
+        .catch(err => console.error(err.message))
+}
+
+//implement new order function. ***Remember to save id to session id***
+
 
 getOrders();
