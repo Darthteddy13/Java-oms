@@ -17,6 +17,8 @@ public class CustDto implements Serializable {
 
     private String name;
 
+    private String phoneNumber;
+
     private String email;
 
     public CustDto(Cust cust)
@@ -26,6 +28,9 @@ public class CustDto implements Serializable {
 
         if(cust.getName() !=null)
             this.name = cust.getName();
+
+        if(cust.getPhoneNumber() != null)
+            this.phoneNumber = cust.getPhoneNumber();
 
         if(cust.getEmail() != null)
             this.email = cust.getEmail();

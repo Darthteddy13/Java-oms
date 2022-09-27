@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface OrderService {
     @Transactional
-    void addOrder(OrderDto orderDto, long id);
+    void addOrder(long id);
 
     @Transactional
     void deleteOrderById(Long id);

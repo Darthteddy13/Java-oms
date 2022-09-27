@@ -30,8 +30,9 @@ public class CustServiceImpl implements CustService {
         List<String> response = new ArrayList<>();
         Cust cust = new Cust(custDto);
 
-        custRepository.saveAndFlush(cust);
+        System.out.println(cust);
 
+        custRepository.saveAndFlush(cust);
         response.add("Customer added!");
         return response;
     }

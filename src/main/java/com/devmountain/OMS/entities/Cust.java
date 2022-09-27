@@ -44,6 +44,9 @@ public class Cust {
 
         if(custDto.getEmail() != null)
             this.email = custDto.getEmail();
+
+        if(custDto.getPhoneNumber() != null)
+            this.phoneNumber = custDto.getPhoneNumber();
     }
 
 

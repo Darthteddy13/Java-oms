@@ -30,10 +30,10 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public void addOrder(OrderDto orderDto, long id)
+    public void addOrder(long id)
     {
         Optional<Cust> custOptional = custRepository.findById(id);
-        Order order = new Order(orderDto);
+        Order order = new Order();
         custOptional.ifPresent(order::setCust);
         orderRepository.saveAndFlush(order);
     }

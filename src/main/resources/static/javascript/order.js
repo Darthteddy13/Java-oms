@@ -1,6 +1,5 @@
 //DOM Elements
-const newCustBtn = document.getElementById("new-customer");
-const customerSelect = document.getElementById("customer_select");
+const addItemBtn = document.getElementById("add-item-btn");
 const itemTable = document.getElementById("item-table");
 
 const headers =
@@ -10,8 +9,7 @@ const headers =
 
 const baseUrl = "http://localhost:8080"
 
-let orderId = sessionStorage.getItem(id);
-sessionStorage.clear();
+let orderId = sessionStorage.getItem("id");
 
 const popItems = arr =>
     {
@@ -34,6 +32,43 @@ const getItems = async () =>
             .catch(err => console.error(err.message))
     }
 
-//implement add item
 
+
+//implement add item
+const newItemSubmit = () =>
+{
+    let name = document.getElementById("item_name").value;
+    let price = document.getElementById("price").value;
+    let description = document.getElementById("description").value;
+
+    if( name != null && price != null && description != null) {
+        let custObj = {
+            name: name,
+            description: description,
+            price: price
+        }
+        console.log(custObj)
+        return custObj;
+    }
+    alert("Please make sure name and phone are not empty");
+    return false
+}
+
+const addItem = async obj =>
+{
+    console.log(obj)
+    if(newItemSubmit())
+    {
+        await fetch(`http://localhost:8080/items/order/${orderId}`,
+            {
+                method: "POST",
+                body: JSON.stringify(newItemSubmit()),
+                headers:headers
+            })
+            .catch(err => console.error(err.message))
+        alert("item added")
+        location.reload();
+    }
+}
+addItemBtn.addEventListener("click", addItem)
 getItems();

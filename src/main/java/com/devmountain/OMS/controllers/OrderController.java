@@ -17,21 +17,18 @@ public class OrderController {
     private OrderService orderService;
 
     @GetMapping("/cust/{custId}")
-    public List<OrderDto> getOrdersByCust(@PathVariable Long id)
+    public List<OrderDto> getOrdersByCust(@PathVariable Long custId)
     {
-        return orderService.getAllOrderByCustId(id);
+        return orderService.getAllOrderByCustId(custId);
     }
 
     @PostMapping("cust/{custId}")
-    public void addOrder(@RequestBody OrderDto orderDto, @PathVariable Long id)
-    {
-        orderService.addOrder(orderDto, id);
-    }
+    public void addOrder(@PathVariable Long custId) { orderService.addOrder(custId); }
 
     @DeleteMapping("/{orderId}")
-    public void deleteOrderById(@PathVariable Long id)
+    public void deleteOrderById(@PathVariable Long orderId)
     {
-        orderService.deleteOrderById(id);
+        orderService.deleteOrderById(orderId);
     }
 
     @PutMapping
@@ -41,9 +38,9 @@ public class OrderController {
     }
 
     @GetMapping("/{orderId}")
-    public Optional<OrderDto> getOrderById(@PathVariable Long id)
+    public Optional<OrderDto> getOrderById(@PathVariable Long orderId)
     {
-        return orderService.getOrderById(id);
+        return orderService.getOrderById(orderId);
     }
 
     @GetMapping("/orders")

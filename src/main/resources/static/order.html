@@ -6,11 +6,8 @@
     <title>Order</title>
 </head>
 <body>
-    <div id="customer">
-        <label for="new-customer"></label>
-        <button id="new-customer" data-bs-toggle="modal" data-bs-target="add_customer_modal">New Customer</button>
-
-
+<label for="home-Btn"></label>
+<button class="btn btn-primary" id="home-Btn" onclick="location.href='http://localhost:8080'; sessionStorage.clear">Order List</button>
     </div>
     <div id="items-container">
         <table class="table table-striped table-bordered table-dark" id="item-table">
@@ -25,48 +22,37 @@
         </table>
     </div>
     <label for="add_item"></label>
-    <button id="add_item">Add Item</button>
+    <button id="add_item" data-bs-toggle="modal" data-bs-target="#add-item-modal">Add Item</button>
 <!-- Modal for adding item -->
-<div class="modal fade" id="add_item_modal">
-    <form id="item_form">
-        <Label for="item_name">Name: </Label>
-        <br>
-        <input type="text" id="item_name"><br>
-        <label for="description">Description: </label>
-        <br>
-        <input type="text" id="description"><br>
-        <label for="price">Price </label>
-        <br>
-        <input type="text" id="price">
-    </form>
-</div>
-<div class="modal fade" id="add_customer_modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+<div div class="modal fade" id="add-item-modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modal-title">New Customer</h5>
             </div>
             <div class="modal-body">
-                <form id="customer-form">
-                    <Label for="cust_name">Name: </Label>
+                <form id="item-form">
+                    <Label for="item_name">Name: </Label>
                     <br>
-                    <input type="text" id="cust_name"><br>
-                    <label for="phone">Phone: </label>
+                    <input type="text" id="item_name"><br>
+                    <label for="description">Description: </label>
                     <br>
-                    <input type="text" id="phone"><br>
-                    <label for="email">Email: </label>
+                    <input type="text" id="description"><br>
+                    <label for="price">Price </label>
                     <br>
-                    <input type="email" id="email">
+                    <input type="text" id="price">
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" id="add-customer-btn" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+                <button type="button" id="add-item-btn" class="btn btn-primary" data-bs-dismiss="modal">Add Item</button>
             </div>
         </div>
     </div>
+</div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 <script src="./javascript/order.js" type="application/javascript"></script>
 </body>
 </html>
+

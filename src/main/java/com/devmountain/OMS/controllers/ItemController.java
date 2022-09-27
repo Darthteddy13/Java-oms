@@ -15,33 +15,33 @@ public class ItemController {
     private ItemService itemService;
 
     @GetMapping("/order/{orderId}")
-    public List<ItemDto> getItemsByOrder(@PathVariable Long id)
+    public List<ItemDto> getItemsByOrder(@PathVariable Long orderId)
     {
-        return itemService.getAllItemInOrder(id);
+        return itemService.getAllItemInOrder(orderId);
     }
 
     @PostMapping("order/{orderId}")
-    public void addItem(@RequestBody ItemDto itemDto, @PathVariable Long id)
+    public void addItem(@RequestBody ItemDto itemDto, @PathVariable Long orderId)
     {
-        itemService.addItem(itemDto, id);
+        itemService.addItem(itemDto, orderId);
     }
 
     @DeleteMapping("/{itemId}")
-    public void deleteItemById(@PathVariable Long id)
+    public void deleteItemById(@PathVariable Long itemId)
     {
-        itemService.deleteItemById(id);
+        itemService.deleteItemById(itemId);
     }
 
     @PutMapping
-    public void updateitem(@RequestBody ItemDto itemDto)
+    public void updateItem(@RequestBody ItemDto itemDto)
     {
         itemService.updateItemById(itemDto);
     }
 
     @GetMapping("/{itemId}")
-    public Optional<ItemDto> getItemById(@PathVariable Long id)
+    public Optional<ItemDto> getItemById(@PathVariable Long itemId)
     {
-        return itemService.getByItemId(id);
+        return itemService.getByItemId(itemId);
     }
 
 }
