@@ -126,8 +126,8 @@ const addCust = async obj =>
             })
             .catch(err => console.error(err.message))
         alert("Customer added")
-        location.reload();
     }
+    location.reload();
 }
 
 newCustBtn.addEventListener("click", addCust)

@@ -11,12 +11,17 @@
     <title>OMS</title>
 </head>
 <body>
-    <div id="button_bar">
-        <button type="button" class="btn btn-primary" id="new_order" data-bs-toggle="modal" data-bs-target="#new-order-modal">New order</button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button type="button" class="btn btn-primary" id="new_order" data-bs-toggle="modal"
+            data-bs-target="#new-order-modal">New order
+    </button>
+    <div>
+        <span class="navbar-brand text-center justify-content-center">Your Order Management System</span>
     </div>
+</nav>
     <div class="container-fluid">
-        <table class="table table-striped table-dark table-bordered" id="order-table">
-            <thead>
+        <table class="table table-striped table-dark table-bordered table-hover" id="order-table">
+            <thead class="">
                 <tr>
                     <th>Order Number</th>
                     <th>Customer Name</th>
